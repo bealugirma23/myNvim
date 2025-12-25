@@ -14,4 +14,7 @@
 vim.cmd("set number")
 vim.cmd("set relativenumber")
 
+-- LazyVim: Disable inlay hints globally
+vim.g.inlay_hints_enabled = false
+
 
