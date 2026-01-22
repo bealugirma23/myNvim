@@ -2,6 +2,9 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+-- Fix for gg navigation issue - ensure default behavior
+vim.keymap.set("n", "gg", "gg", { desc = "Go to line" })
+
 -- Remap redo to <leader>r because Ctrl+R is used by the OS.
 vim.keymap.set("n", "<leader>r", "<C-r>", { desc = "Redo" })
 

@@ -17,6 +17,11 @@ return {
             },
           },
         },
+        on_attach = function(client, bufnr)
+          if client.server_capabilities.inlayHintProvider then
+            pcall(vim.lsp.inlay_hint.enable, bufnr, false)
+          end
+        end,
       },
       tsserver = {
         settings = {
@@ -43,6 +48,18 @@ return {
             },
           },
         },
+        on_attach = function(client, bufnr)
+          if client.server_capabilities.inlayHintProvider then
+            pcall(vim.lsp.inlay_hint.enable, bufnr, false)
+          end
+        end,
+      },
+      dartls = {
+        on_attach = function(client, bufnr)
+          if client.server_capabilities.inlayHintProvider then
+            pcall(vim.lsp.inlay_hint.enable, bufnr, false)
+          end
+        end,
       },
     },
   },

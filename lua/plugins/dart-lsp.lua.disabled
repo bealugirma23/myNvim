@@ -1,0 +1,11 @@
+-- Dart/Flutter LSP configuration
+-- Only configure dartls if flutter-tools is not available
+-- flutter-tools includes its own LSP server for Dart files
+return {
+  "neovim/nvim-lspconfig",
+  opts = {
+    servers = {
+      -- Don't configure dartls when using flutter-tools to avoid conflicts
+    },
+  },
+}

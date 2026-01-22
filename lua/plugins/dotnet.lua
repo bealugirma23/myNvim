@@ -7,7 +7,7 @@ return {
     dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
     config = function()
       require("easy-dotnet").setup({
-        -- Path to the dotnet CLI, leave as nil to use the one in PATH
+        -- Path to the dotnet CLI, leave as nil to use the path in PATH
         dotnet_cli_path = nil,
         -- Test explorer settings
         test_project_pattern = "*.Tests.csproj",
@@ -16,25 +16,11 @@ return {
       })
     end,
   },
-  
-  -- Additional C# syntax highlighting
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = { "c_sharp", "xml", "json" },
-    },
-  },
-  
+
   -- Manual LSP configuration for C# (if .NET SDK is installed)
   {
     "neovim/nvim-lspconfig",
     opts = {
-      setup = {
-        omnisharp = function()
-          -- Disable inlay hints for omnisharp to prevent errors
-          vim.lsp.inlay_hint.enable(0, false)
-        end,
-      },
       servers = {
         -- Only configure omnisharp if it's manually installed
         omnisharp = {
@@ -46,6 +32,11 @@ return {
               },
             },
           },
+          on_attach = function(client, bufnr)
+            if client.server_capabilities.inlayHintProvider then
+              pcall(vim.lsp.inlay_hint.enable, bufnr, false)
+            end
+          end,
         },
       },
     },

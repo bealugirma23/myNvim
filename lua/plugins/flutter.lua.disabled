@@ -1,0 +1,69 @@
+-- Flutter development configuration
+
+return {
+  "nvim-flutter/flutter-tools.nvim",
+  ft = { "dart" },
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "stevearc/dressing.nvim", -- Optional, but highly recommended for vim.ui.select
+  },
+  config = true,
+    -- function()
+    -- -- Ensure dartls is not active when flutter-tools is used
+    -- local lspconfig = require("lspconfig")
+    -- -- Override dartls setup to prevent conflicts
+    -- lspconfig.dartls = lspconfig.dartls or {}
+    -- lspconfig.dartls.setup = function() end -- Disable dartls setup
+    --
+    -- require("flutter-tools").setup({
+    --   flutter_path = "/Users/mac/development/flutter/bin/flutter", -- Explicit path to flutter
+    --   flutter_lookup_cmd = "flutter doctor -v", -- Command to find Flutter installation
+    --   fvm = false, -- Set to true if using Flutter Version Management
+    --   widget_guides = {
+    --     enabled = true,
+    --   },
+    --   dev_log = {
+    --     enabled = true,
+    --     open_cmd = "tab split", -- Command to open the dev log
+    --   },
+    --   dev_tools = {
+    --     autostart = false, -- Start dev tools automatically
+    --     auto_open_browser = false, -- Open browser automatically
+    --   },
+    --   outline = {
+    --     open_cmd = "30vsplit", -- Command to open the outline
+    --     auto_open = true, -- Open outline automatically
+    --   },
+    --   lsp = {
+    --     color = {
+    --       enabled = true,
+    --       background = true,
+    --       background_color = nil,
+    --       foreground = false,
+    --       virtual_text = true,
+    --     },
+    --     settings = {
+    --       showTodos = true,
+    --       completeFunctionCalls = true,
+    --       analysisExcludedFolders = {
+    --         "${workspaceFolder}/.flutter",
+    --         "${workspaceFolder}/.dart_tool",
+    --       },
+    --     },
+    --     on_attach = function(client, bufnr)
+    --       -- Set up keymaps for LSP functionality
+    --       local bufopts = { noremap=true, silent=true, buffer=bufnr }
+    --       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+    --       vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+    --       vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+    --       vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+    --       vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+    --       vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+    --       vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+    --       vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+    --       vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+    --     end,
+    --   },
+    -- })
+  -- end,
+}
