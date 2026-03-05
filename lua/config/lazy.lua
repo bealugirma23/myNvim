@@ -20,7 +20,9 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import LazyVim extras
     { import = "lazyvim.plugins.extras.lang.typescript" },
-    { import = "lazyvim.plugins.extras.lang.omnisharp" },
+    -- { import = "lazyvim.plugins.extras.lang.omnisharp" },
+    { import = "lazyvim.plugins.extras.lang.dotnet" },
+
     -- import/override with your plugins
     { import = "plugins" },
   },

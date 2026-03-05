@@ -21,13 +21,7 @@ return {
       })
     end,
   },
-  
-  -- Copilot for AI assistance
-  {
-    "github/copilot.vim",
-    enabled = false, -- Disabled by default, enable if you have Copilot
-  },
-  
+
   -- Better quickfix window
   {
     "kevinhwang91/nvim-bqf",
