@@ -1,10 +1,10 @@
 -- Flutter development configuration
 return {
   "nvim-flutter/flutter-tools.nvim",
-  ft = { "dart" },
+  lazy = false, -- Load immediately to ensure LSP starts
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "stevearc/dressing.nvim", -- Optional, but highly recommended for vim.ui.select
+    "stevearc/dressing.nvim",
     "neovim/nvim-lspconfig",
   },
   config = function()
@@ -19,10 +19,7 @@ return {
         enabled = true,
         open_cmd = "tab split", -- Command to open the dev log
       },
-      dev_tools = {
-        autostart = false, -- Start dev tools automatically
-        auto_open_browser = false, -- Open browser automatically
-      },
+      dev_tools = { autostart = true, auto_open_browser = false },
       outline = {
         open_cmd = "30vsplit", -- Command to open the outline
         auto_open = true, -- Open outline automatically
@@ -35,6 +32,11 @@ return {
           foreground = false,
           virtual_text = true,
         },
+        on_attach = function(client, bufnr)
+          -- Ensure keymaps are set
+          vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "Go to definition" })
+          vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr, desc = "Hover" })
+        end,
         settings = {
           showTodos = true,
           completeFunctionCalls = true,
@@ -44,6 +46,7 @@ return {
           },
         },
       },
+      debugger = { enabled = true, run_via_dap = true },
     })
   end,
 }

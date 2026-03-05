@@ -45,7 +45,7 @@ return {
       { "<leader>tn", "<cmd>SnacksToggle number<cr>", desc = "Toggle line numbers" },
       { "<leader>uB", "<cmd>SnacksGitBrowse<cr>", desc = "Git Browse" },
       { "<leader>gb", "<cmd>SnacksGitBrowse<cr>", desc = "Git Browse" },
-      { "<leader>uC", "<cmd>SnacksGitCopyUrl modus operandi<cr>", desc = "Git Copy Content URL" },
+      { "<leader>uC", "<cmd>SnacksGitCopyUrl<cr>", desc = "Git Copy Content URL" },
       { "<leader>gc", "<cmd>SnacksGitCopyUrl<cr>", desc = "Git Copy URL" },
       { "<leader>gt", "<cmd>SnacksTerminal<cr>", desc = "Toggle Terminal (Snacks)" },
       { "<leader>tx", "<cmd>SnacksTerminalExec<cr>", desc = "Execute in Terminal (Snacks)" },

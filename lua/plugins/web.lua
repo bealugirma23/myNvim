@@ -12,10 +12,11 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
-        javascript = { "prettierd", "prettier" },
-        javascriptreact = { "prettierd", "prettier" },
-        typescript = { "prettierd", "prettier" },
-        typescriptreact = { "prettierd", "prettier" },
+        -- Prefer eslint_d fixes first, then prettier
+        javascript = { "eslint_d", "prettierd", "prettier" },
+        javascriptreact = { "eslint_d", "prettierd", "prettier" },
+        typescript = { "eslint_d", "prettierd", "prettier" },
+        typescriptreact = { "eslint_d", "prettierd", "prettier" },
         vue = { "prettierd", "prettier" },
         css = { "prettierd", "prettier" },
         scss = { "prettierd", "prettier" },

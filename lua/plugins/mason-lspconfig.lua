@@ -1,8 +1,11 @@
 -- Mason LSP Config
 return {
-  "mason-org/mason.lspconfig.nvim",
-  dependencies = { "mason-org/mason.nvim" },
-  opts = {
-    automatic_installation = false, -- Disable automatic installation completely
-  },
+    "mason-org/mason-lspconfig.nvim",
+    opts = {
+      ensure_installed = { "dart" },
+    },
+    dependencies = {
+        { "mason-org/mason.nvim", opts = {} },
+        "neovim/nvim-lspconfig", 
+	},
 }

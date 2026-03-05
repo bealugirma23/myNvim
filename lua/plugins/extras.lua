@@ -66,19 +66,15 @@ return {
     version = "*",
     event = "VeryLazy",
     config = function()
-      require("nvim-surround").setup({
-        keymaps = {
-          insert = "<C-g>s",
-          insert_line = "<C-g>S",
-          normal = "gs",
-          normal_cur = "gss",
-          normal_line = "gS",
-          visual = "gs",
-          visual_line = "gS",
-          delete = "ds",
-          change = "cs",
-        },
-      })
+      -- v4+ no longer sets keymaps via setup; use defaults then add remaps
+      require("nvim-surround").setup()
+      local map = vim.keymap.set
+      -- Remap "gs" family to mirror old custom bindings
+      map("n", "gs", "ys", { remap = true, desc = "Surround add" })
+      map("n", "gss", "yss", { remap = true, desc = "Surround add line" })
+      map("n", "gS", "yS", { remap = true, desc = "Surround add linewise" })
+      map("x", "gs", "S", { remap = true, desc = "Surround selection" })
+      map("x", "gS", "S", { remap = true, desc = "Surround selection linewise" })
     end,
   },
   
@@ -184,7 +180,8 @@ return {
         patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "tsconfig.json", "pubspec.yaml", "*.sln" },
         ignore_lsp = {},
         exclude_dirs = {},
-        show_hidden = false,
+        -- Show hidden files (e.g. .env) in Telescope-based pickers
+        show_hidden = true,
         silent_chdir = true,
         scope_chdir = "global",
         datapath = vim.fn.stdpath("data"),

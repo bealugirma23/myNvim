@@ -1,46 +1,16 @@
 -- LazyVim LSP configuration with inlay hints disabled
+-- Note: C# OmniSharp config moved to LazyVim csharp extra
 return {
   "neovim/nvim-lspconfig",
   opts = {
-    -- Disable inlay hints to prevent positioning errors
-    inlay_hints = {
-      enabled = false,
-    },
-    -- Configure servers safely
+    -- Keep server-specific tweaks minimal; inlay hints are disabled globally elsewhere
     servers = {
-      -- Disable problematic inlay hint features for specific servers
-      omnisharp = {
+      dart = {
+        cmd = { "dart", "language-server", "--protocol=lsp" },
         settings = {
-          csharp = {
-            inlayHints = {
-              enable = false,
-            },
-          },
-        },
-      },
-      tsserver = {
-        settings = {
-          typescript = {
-            inlayHints = {
-              includeInlayParameterNameHints = false,
-              includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-              includeInlayFunctionParameterTypeHints = false,
-              includeInlayVariableTypeHints = false,
-              includeInlayPropertyDeclarationTypeHints = false,
-              includeInlayFunctionLikeReturnTypeHints = false,
-              includeInlayEnumMemberValueHints = false,
-            },
-          },
-          javascript = {
-            inlayHints = {
-              includeInlayParameterNameHints = false,
-              includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-              includeInlayFunctionParameterTypeHints = false,
-              includeInlayVariableTypeHints = false,
-              includeInlayPropertyDeclarationTypeHints = false,
-              includeInlayFunctionLikeReturnTypeHints = false,
-              includeInlayEnumMemberValueHints = false,
-            },
+          dart = {
+            completeFunctionCalls = true,
+            showTodos = true,
           },
         },
       },

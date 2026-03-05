@@ -21,7 +21,10 @@ end
 
 -- Web development keymaps
 vim.keymap.set("n", "<leader>wf", "<cmd>lua require('lazyvim.util.format').format()<cr>", { desc = "Format File" })
-vim.keymap.set("n", "<leader>we", "<cmd>EslintFixAll<cr>", { desc = "ESLint Fix All" })
+-- Use Conform as the single entry-point for JS/TS fixes (eslint_d then prettier)
+vim.keymap.set("n", "<leader>we", function()
+  require("conform").format({ async = true, lsp_fallback = true })
+end, { desc = "ESLint/Prettier Fix" })
 
 -- Project keymaps
 vim.keymap.set("n", "<leader>pp", "<cmd>Telescope projects<cr>", { desc = "Projects" })

@@ -1,0 +1,4 @@
+WRN 2026-03-01T08:03:01.071 ?.60796    server_start:199: Failed to start server: operation not permitted: /var/folders/hs/wd4s0fzn6ps0q67lc8xy63c80000gn/T/nvim.mac/l84Ywk/nvim.60796.0
+WRN 2026-03-01T08:04:25.347 ?.62559    server_start:199: Failed to start server: operation not permitted: /var/folders/hs/wd4s0fzn6ps0q67lc8xy63c80000gn/T/nvim.mac/HseKCP/nvim.62559.0
+WRN 2026-03-01T08:11:21.387 ?.66726    server_start:199: Failed to start server: operation not permitted: /var/folders/hs/wd4s0fzn6ps0q67lc8xy63c80000gn/T/nvim.mac/mxHDV5/nvim.66726.0
+WRN 2026-03-01T08:14:56.959 ?.72508    server_start:199: Failed to start server: operation not permitted: /var/folders/hs/wd4s0fzn6ps0q67lc8xy63c80000gn/T/nvim.mac/ESFYgO/nvim.72508.0

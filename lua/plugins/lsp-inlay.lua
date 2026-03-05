@@ -1,9 +1,7 @@
--- LazyVim: Disable inlay hints to prevent positioning errors
+-- Single source of truth: disable inlay hints cleanly
 return {
   "neovim/nvim-lspconfig",
   opts = {
-    inlay_hints = {
-      enabled = false,
-    },
+    inlay_hints = { enabled = false },
   },
 }
